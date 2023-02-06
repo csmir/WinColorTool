@@ -2,12 +2,12 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace WCT.Information
+namespace WCT.Interop
 {
     /// <summary>
     ///     A class that wraps user32 cursor information discovery.
     /// </summary>
-    public static partial class CursorInformation
+    public static partial class Cursor
     {
         [LibraryImport("user32.dll"), EditorBrowsable(EditorBrowsableState.Never)]
         [return: MarshalAs(UnmanagedType.Bool)]

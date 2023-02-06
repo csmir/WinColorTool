@@ -3,12 +3,12 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-namespace WCT.Information
+namespace WCT.Interop
 {
     /// <summary>
     ///     A class that wraps gdi32 pixel information discovery.
     /// </summary>
-    public static partial class PixelInformation
+    public static partial class Pixel
     {
         private static readonly Bitmap _screenPixel = new(1, 1, PixelFormat.Format32bppArgb);
 
