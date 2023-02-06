@@ -4,9 +4,9 @@ This windows tool is intended to make it easier for users to get detailed color 
 
 ## 🔑 Shortcuts
 
-- ALT + C + 
-  - H, copies HEX formatted color from cursor position.
-  - R, copies RGB formatted color from cursor position.
-  - S, copies HSL formatted color from cursor position.
-- ALT + P
+- `ALT + C + `
+  - `H`, copies `HEX` from cursor position.
+  - `R`, copies `RGB` from cursor position.
+  - `S`, copies `HSL` from cursor position.
+- `ALT + P`
   - Pops out the console window. Closing this window does not quit the app. All functionality will remain.
