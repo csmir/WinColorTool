@@ -18,7 +18,9 @@ timer.Elapsed += (_, x) =>
 
         Console.WriteLine($"{point.X}, {point.Y}: {color}");
 
-        if (Input.Is(VirtualKey.LeftMouseButton))
+        //if (Input.Matches(VirtualKey.LeftMouseButton))
+
+        if (Input.Matches(VirtualKey.Alt, VirtualKey.C))
             Clipboard.Copy(color);
     }
 };

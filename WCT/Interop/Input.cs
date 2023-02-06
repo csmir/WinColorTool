@@ -14,13 +14,22 @@ namespace WCT.Interop
     public static partial class Input
     {
         [LibraryImport("user32.dll"), EditorBrowsable(EditorBrowsableState.Never)]
+#pragma warning disable CA1401 // P/Invokes should not be visible
         public static partial short GetAsyncKeyState(int VirtualKeyPressed);
+#pragma warning restore CA1401 // P/Invokes should not be visible
 
-        public static bool Is(VirtualKey key)
+        public static bool Matches(VirtualKey key)
         {
             if (GetAsyncKeyState((int)key) == 0)
                 return false;
             return true;
+        }
+
+        public static bool Matches(params VirtualKey[] keys)
+        {
+            if (keys.All(Matches))
+                return true;
+            return false;
         }
     }
 
@@ -32,5 +41,9 @@ namespace WCT.Interop
         LeftMouseButton = 0x01,
 
         RightMouseButton = 0x02,
+
+        Alt = 0x12,
+
+        C = 0x43,
     }
 }
