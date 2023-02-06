@@ -9,7 +9,8 @@ namespace WCT.Interop
     /// </summary>
     public static partial class Cursor
     {
-        [LibraryImport("user32.dll"), EditorBrowsable(EditorBrowsableState.Never)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [LibraryImport("user32.dll", SetLastError = true)] 
         [return: MarshalAs(UnmanagedType.Bool)]
         public static partial bool GetCursorPos(out PT point);
 

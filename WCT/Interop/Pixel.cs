@@ -12,7 +12,8 @@ namespace WCT.Interop
     {
         private static readonly Bitmap _screenPixel = new(1, 1, PixelFormat.Format32bppArgb);
 
-        [LibraryImport("gdi32.dll", SetLastError = true), EditorBrowsable(EditorBrowsableState.Never)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [LibraryImport("gdi32.dll", SetLastError = true)]
         public static partial int BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
 
         /// <summary>

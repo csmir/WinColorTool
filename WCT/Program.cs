@@ -1,5 +1,4 @@
-﻿
-using WCT.Extensions;
+﻿using WCT.Extensions;
 using WCT.Interop;
 
 var frameCount = 1000 / 15;
@@ -17,8 +16,6 @@ timer.Elapsed += (_, x) =>
         var color = Pixel.GetColor(point).ToHex();
 
         Console.WriteLine($"{point.X}, {point.Y}: {color}");
-
-        //if (Input.Matches(VirtualKey.LeftMouseButton))
 
         if (Input.Matches(VirtualKey.Alt, VirtualKey.C))
             Clipboard.Copy(color);

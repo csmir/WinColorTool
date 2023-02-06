@@ -13,10 +13,9 @@ namespace WCT.Interop
     /// </summary>
     public static partial class Input
     {
-        [LibraryImport("user32.dll"), EditorBrowsable(EditorBrowsableState.Never)]
-#pragma warning disable CA1401 // P/Invokes should not be visible
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [LibraryImport("user32.dll", SetLastError = true)]
         public static partial short GetAsyncKeyState(int VirtualKeyPressed);
-#pragma warning restore CA1401 // P/Invokes should not be visible
 
         public static bool Matches(VirtualKey key)
         {
@@ -34,16 +33,32 @@ namespace WCT.Interop
     }
 
     /// <summary>
-    ///     Represents a virtual key. Refer to https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes for more information.
+    ///     Represents a virtual key. Refer to <see href="https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes"/> for more information.
     /// </summary>
     public enum VirtualKey : byte
     {
-        LeftMouseButton = 0x01,
+        LeftMouse = 0x01,
 
-        RightMouseButton = 0x02,
+        RightMouse = 0x02,
+
+        MiddleMouse = 0x04,
+
+        Backspace = 0x08,
+
+        Tab = 0x09,
+
+        Clear = 0x0C,
+
+        Enter = 0x0D,
 
         Alt = 0x12,
 
         C = 0x43,
+
+        D = 0x44,
+
+        E = 0x45,
+
+        F = 0x46,
     }
 }
