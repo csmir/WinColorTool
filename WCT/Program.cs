@@ -13,12 +13,23 @@ timer.Elapsed += (_, x) =>
 {
     if (Cursor.TryGetCursorPosition(out var point))
     {
-        var color = Pixel.GetColor(point).ToHex();
+        var color = Pixel.GetColor(point);
 
-        Console.WriteLine($"{point.X}, {point.Y}: {color}");
+        Console.WriteLine($"{point.X}, {point.Y}: {color.ToHex()}");
 
-        if (Input.Matches(VirtualKey.Alt, VirtualKey.C))
-            Clipboard.Copy(color);
+        Input.Matches(Key.Alt, Key.C)
+            .ContinueMatching(Key.H, () =>
+            {
+                Clipboard.Copy(color.ToHex());
+            })
+            .ContinueMatching(Key.R, () =>
+            {
+                Clipboard.Copy(color.ToArgb());
+            })
+            .ContinueMatching(Key.S, () =>
+            {
+                Clipboard.Copy(color.ToHsl());
+            });
     }
 };
 

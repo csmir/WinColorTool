@@ -16,7 +16,7 @@ namespace WCT.Interop
         ///     Copies provided string to the clipboard.
         /// </summary>
         /// <param name="value"></param>
-        public static void Copy(string value)
+        public static void Copy(IConvertible convertible)
         {
             Process clipboardExecutable = new()
             {
@@ -28,7 +28,7 @@ namespace WCT.Interop
             };
             clipboardExecutable.Start();
 
-            clipboardExecutable.StandardInput.Write(value);
+            clipboardExecutable.StandardInput.Write(convertible.ToString());
             clipboardExecutable.StandardInput.Close();
         }
     }
